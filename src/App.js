@@ -4,12 +4,23 @@ import ImageList from './imageList.jsx';
 
 class App extends Component {
   state = { 
-      keyword: 'All'
-   }
+      keyword: 'All',
+   };
+
+   imageChange = (event) => {
+    this.setState({ keyword: event.target.value });
+  };
+
   render() { 
+    
+    const filteredCreatures = images.filter(
+      (creature) => this.state.keyword === 'All' || creature.keyword === this.state.keyword
+    );
+
     return ( 
+      
       <div className='App'>
-          <select>
+          <select onChange={this.imageChange}>
               <option value="narwhal">Uniwhal</option>
               <option value="rhino">Rhino Family</option>
               <option value="unicorn">Unicorn Head</option>
@@ -31,7 +42,7 @@ class App extends Component {
               <option value="lizard">Horned Lizard</option>
               <option value="dragon">Smaug</option>
           </select>
-          <ImageList images={images} />
+          <ImageList images={this.state.keyword === 'All' ? images : filteredCreatures}/>
       </div>
      );
   }
