@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-// import images from './data.js';
+import images from './data.js';
 import ImageList from './imageList.jsx';
 
 class App extends Component {
-  state = {  }
+  state = { 
+   
+   }
   render() { 
     return ( 
-      <ImageList />
+      <div className='App'>
+          <ImageList images={images} />
+      </div>
      );
   }
 }
