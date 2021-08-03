@@ -6,7 +6,6 @@ class ImageList extends Component {
     render() { 
         return ( 
             <>
-            <h1>Cute Adorable Cuddly Characters</h1>
                 {this.props.images.map((item) => {
                     return <ImageItem key={item.title} images={item}/>
                 })} 

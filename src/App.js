@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import images from './data.js';
 import ImageList from './imageList.jsx';
+import './creature.css';
 
 class App extends Component {
   state = { 
       keyword: 'All',
    };
 
-   imageChange = (event) => {
+  imageHandle = (event) => {
     this.setState({ keyword: event.target.value });
   };
 
@@ -20,7 +21,8 @@ class App extends Component {
     return ( 
       
       <div className='App'>
-          <select onChange={this.imageChange}>
+        <h1>Select a creature:</h1>
+          <select onChange={this.imageHandle}>
               <option value="narwhal">Uniwhal</option>
               <option value="rhino">Rhino Family</option>
               <option value="unicorn">Unicorn Head</option>
@@ -42,7 +44,10 @@ class App extends Component {
               <option value="lizard">Horned Lizard</option>
               <option value="dragon">Smaug</option>
           </select>
-          <ImageList images={this.state.keyword === 'All' ? images : filteredCreatures}/>
+        <section className='Image-box'>
+          <ImageList images={filteredCreatures} />
+        </section>
+        
       </div>
      );
   }
