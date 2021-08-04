@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
+import './creature.css';
 
 class Dropdown extends Component {
     state = {  }
     render() { 
-        console.log(this.props)
-        const {options, changeHandle} = this.props;
+        const {options, changeHandle, label} = this.props;
         return ( 
-            <select onChange={changeHandle}>
-              {options.map((option) => (<option value={option}>{option}</option>))}
-            </select>
+            <div className='Dropdown'>
+                <label>{label}</label>
+                <select onChange={changeHandle}>
+                    {options.map((option) => (<option value={option}>{option}</option>))}
+                </select>
+            </div>
+
          );
     }
 }
