@@ -6,16 +6,21 @@ import './creature.css';
 class App extends Component {
   state = { 
       keyword: 'All',
+      horns: 'All'
    };
 
   imageHandle = (event) => {
     this.setState({ keyword: event.target.value });
   };
 
+  hornHandle = (event) => {
+    this.setState({ horns: event.target.value })
+  }
+
   render() { 
     
     const filteredCreatures = images.filter(
-      (creature) => this.state.keyword === 'All' || creature.keyword === this.state.keyword
+      (creature) => (this.state.keyword === 'All' || creature.keyword === this.state.keyword) && (this.state.horns === 'All' || creature.horns === +(this.state.horns))
     );
 
     return ( 
@@ -43,6 +48,12 @@ class App extends Component {
               <option value="chameleon">Serious Jackson's Chameleon</option>
               <option value="lizard">Horned Lizard</option>
               <option value="dragon">Smaug</option>
+          </select>
+          <select onChange={this.hornHandle}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="100">100</option>
           </select>
         <section className='Image-box'>
           <ImageList images={filteredCreatures} />
