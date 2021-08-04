@@ -37,3 +37,18 @@ p {
 select {
     margin-bottom: 20px;
 }
+
+.Dropdown {
+    margin: 10px 0;
+    color: rgb(101, 28, 226);
+    display: grid;
+    font-size: 1.2em;
+    border: aqua 1px;
+    border-radius: 5%;
+    padding: 5px;
+    box-shadow: rgb(249, 199, 199) 0px 0px 15px 15px;
+}
+
+label {
+    padding-bottom: 5px;
+}
